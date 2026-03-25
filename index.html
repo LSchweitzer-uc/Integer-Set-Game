@@ -1,29 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Integer Set</title>
+</head>
 
-<h1>Integer Set</h1>
+<body>
 
-<p>Time Left: <span id="time">120</span>s</p>
-<p>High Score: <span id="highScore">0</span></p>
+  <h1>Integer Set</h1>
 
-<p>Score: <span id="score">0</span></p>
+  <p>Time Left: <span id="time">120</span>s</p>
+  
+  <p>High Score: <span id="highScore">0</span></p>
+  
+  <p>Score: <span id="score">0</span></p>
+  
+  <label for="diffInput">Difficulty (Std Dev): </label>
+  
+  <input id="diffInput" type="number" value="10" min="1" max="5000000">
+  
+  <p>Difficulty: <span id="diffDisplay"></span></p>
+  
+  <p id="setStatus"></p>
+  
+  <div id="numbers"></div>
+  
+  <button onclick="startGame()">Start Timed Game</button>
+  
+  <button id="stopBtn">Stop Game</button>
+  
+  <button id="submitBtn">Submit Set</button>
+  
+  <button onclick="handleDrawCard()">Draw Card</button>
 
-<label for="diffInput">Difficulty (Std Dev): </label>
-<input id="diffInput" type="number" value="10" min="1" max="5000000">
+  <div id="numbers"></div>
 
-<p>Difficulty: <span id="diffDisplay"></span></p>
+  <button onclick="startGame()">Start Timed Game</button>
+  
+  <button id="stopBtn">Stop Game</button>
+  
+  <button id="submitBtn">Submit Set</button>
+  
+  <button onclick="handleDrawCard()">Draw Card</button>
+  
+  <p id="result"></p>
 
-<p id="setStatus"></p>
 
-<div id="numbers"></div>
-
-<button onclick="startGame()">Start Timed Game</button>
-
-<button id="stopBtn">Stop Game</button>
-
-<button id="submitBtn">Submit Set</button>
-
-<button onclick="handleDrawCard()">Draw Card</button>
-
-<p id="result"></p>
-
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
+</html>
+
+
