@@ -50,6 +50,8 @@ function endGame() {
     highScore = modifiedScore;
   }
 
+  score=0;
+
   document.getElementById("highScore").innerText = highScore;
 
   document.getElementById("diffInput").disabled = false;
