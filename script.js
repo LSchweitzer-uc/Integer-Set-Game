@@ -49,6 +49,8 @@ function endGame() {
   }
 
   document.getElementById("highScore").innerText = highScore;
+
+  document.getElementById("diffInput").disabled = false;
 }
 
 //stdDev 25 seems pretty reasonable, if make it much bigger also change the cap of attempts on ensureValidSet
