@@ -43,9 +43,11 @@ function endGame() {
 
   let highScore = localStorage.getItem("highScore") || 0;
 
-  if (score > highScore) {
-    localStorage.setItem("highScore", score);
-    highScore = score*diff;
+  let modifiedScore = score*diff
+
+  if (modifiedScore > highScore) {
+    localStorage.setItem("highScore", modifiedScore);
+    highScore = modifiedScore;
   }
 
   document.getElementById("highScore").innerText = highScore;
@@ -174,12 +176,6 @@ function ensureValidSet(maxAttempts = 20) {
     drawCard();
     attempts++;
   }
-
-  // Optional: fallback if still no set
-  if (!hasZeroSumSet(numbers)) {
-    document.getElementById("result").innerText += 
-      " (No valid set found after drawing cards)";
-  }
 }
 
 function submitSet() {
@@ -192,7 +188,7 @@ function submitSet() {
 
   if (sum === 0) {
     document.getElementById("result").innerText = "Correct!";
-    score += 1;
+    score += selected.length;
 
     // remove selected numbers
     numbers = numbers.filter((_, i) => !selected.includes(i));
@@ -201,10 +197,9 @@ function submitSet() {
     score -= 1;
   }
 
-  // 🔥 KEY ADDITION: ensure valid set exists
+  // ensure valid set exists
   ensureValidSet();
 
-  // re-render AFTER all changes
   renderNumbers();
 
   document.getElementById("score").innerText = score;
@@ -220,6 +215,8 @@ function stopGame() {
 function handleDrawCard() {
   drawCard();          // add the number
   renderNumbers();     // update display
+  score -=1;           // penalty to avoid spamming to guarantee easy sets
+  document.getElementById("score").innerText = score;
   updateSetStatus();   // update valid set message
 }
 
