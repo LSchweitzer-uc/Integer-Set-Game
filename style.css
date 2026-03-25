@@ -1,0 +1,14 @@
+
+body {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+button {
+  margin: 5px;
+  padding: 10px;
+}
+
+.selected {
+  background-color: lightblue;
+}
