@@ -5,6 +5,7 @@ let timeLeft = 120;
 let diff = 25
 let timerInterval = null;
 let gameActive = false;
+let highScore = localStorage.getItem("highScore") || 0;
 
 function startGame() {
   score = 0;
@@ -190,13 +191,15 @@ function submitSet() {
 
   if (sum === 0) {
     document.getElementById("result").innerText = "Correct!";
-    score += selected.length;
+    if (gameActive)
+      score += selected.length;
 
     // remove selected numbers
     numbers = numbers.filter((_, i) => !selected.includes(i));
   } else {
     document.getElementById("result").innerText = "Not zero!";
-    score -= 1;
+    if (gameActive)
+      score -= 1;
   }
 
   // ensure valid set exists
@@ -217,7 +220,8 @@ function stopGame() {
 function handleDrawCard() {
   drawCard();          // add the number
   renderNumbers();     // update display
-  score -=1;           // penalty to avoid spamming to guarantee easy sets
+  if (gameActive)
+    score -=1;           // penalty to avoid spamming to guarantee easy sets
   document.getElementById("score").innerText = score;
   updateSetStatus();   // update valid set message
 }
