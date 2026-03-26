@@ -13,17 +13,12 @@ button {
   background-color: lightblue;
 }
 
-body {
-  font-family: sans-serif;
-  text-align: center;
-}
-
 /* Group sections */
 .controls, .stats, .actions {
   margin: 15px 0;
 }
 
-/* Layout controls nicely */
+/* Layout controls */
 .controls {
   display: flex;
   justify-content: center;
