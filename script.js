@@ -12,7 +12,7 @@ function startGame() {
   gameActive = true;
   document.getElementById("diffInput").disabled = true;
 
-  // 🔥 read user input
+  // read user input
   diff = parseInt(document.getElementById("diffInput").value);
 
   generateNumbers();
