@@ -2,7 +2,7 @@ let numbers = [];
 let selected = [];
 let score = 0;
 let timeLeft = 120;
-let diff = 50
+let diff = 25
 let timerInterval = null;
 let gameActive = false;
 
