@@ -12,29 +12,30 @@
 
   <p>Select sets of 3+ integers that add up to 0 to score points</p>
 
-  <p>Time Left: <span id="time">120</span>s</p>
+  <div class="controls">
+  <button onclick="startGame()">Start Game</button>
+  <button id="stopBtn">Stop Game</button>
+
+  <div class="difficulty">
+    <label for="diffInput">Difficulty:</label>
+    <input id="diffInput" type="number" value="25" min="1" max="5000000">
+  </div>
+  </div>
   
-  <p>High Score: <span id="highScore">0</span></p>
-  
-  <p>Score: <span id="score">0</span></p>
-  
-  <label for="diffInput">Set Difficulty (Std Dev): </label>
-  
-  <input id="diffInput" type="number" value="25" min="1" max="5000000">
-  
-  <p>Current Difficulty: <span id="diffDisplay"></span></p>
+  <div class="stats">
+    <p>Time: <span id="time">120</span>s</p>
+    <p>Score: <span id="score">0</span></p>
+    <p>High Score: <span id="highScore">0</span></p>
+  </div>
   
   <p id="setStatus"></p>
-
+  
   <div id="numbers"></div>
-
-  <button onclick="startGame()">Start Timed Game</button>
   
-  <button id="stopBtn">Stop Game</button>
-  
-  <button id="submitBtn">Submit Set</button>
-  
-  <button onclick="handleDrawCard()">Draw Card</button>
+  <div class="actions">
+    <button id="submitBtn">Submit Set</button>
+    <button onclick="handleDrawCard()">Draw Card (-1)</button>
+  </div>
   
   <p id="result"></p>
 
