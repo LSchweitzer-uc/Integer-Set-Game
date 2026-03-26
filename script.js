@@ -234,6 +234,25 @@ document.getElementById("submitBtn").onclick = submitSet;
 
 generateNumbers();
 updateSetStatus();
+
+const diffInput = document.getElementById("diffInput");
+
+diffInput.addEventListener("keydown", function (event) {
+  if (event.key === "Enter") {
+    diff = parseInt(diffInput.value);
+
+    // update display immediately
+    document.getElementById("diffDisplay").innerText = diff;
+    generateNumbers();
+    updateSetStatus();
+
+    // prevent weird values
+    if (isNaN(diff) || diff < 1) {
+      diff = 25;
+      diffInput.value = diff;
+    }
+  }
+});
 document.getElementById("diffDisplay").innerText = diff;
 document.getElementById("stopBtn").onclick = stopGame;
 let savedHigh = localStorage.getItem("highScore") || 0;
